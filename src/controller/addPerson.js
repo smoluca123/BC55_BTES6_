@@ -1,6 +1,8 @@
 import { $a, $all } from './shortEle.js';
 import { Student } from '../models/Student.js';
 import { handleRender } from './handleRender.js';
+import { Employee } from '../models/Employee.js';
+import { Customer } from '../models/Customer.js';
 
 function getPersonInfo() {
   const selectValue = $a('#typePersonModal');
@@ -26,7 +28,7 @@ function getPersonInfo() {
     case 'Employee':
       const workingDays = $a('#workingDays').value;
       const salaryDay = $a('#salaryDay').value;
-      const employee = new Student(
+      const employee = new Employee(
         nameValue,
         emailValue,
         idValue,
@@ -39,7 +41,7 @@ function getPersonInfo() {
       const companyName = $a('#companyName').value;
       const valuation = $a('#valuation').value;
       const review = $a('#review').value;
-      const customer = new Student(
+      const customer = new Customer(
         nameValue,
         emailValue,
         idValue,
