@@ -3,23 +3,26 @@ export class ListPerson {
     this.persons = [];
   }
 
+  getPersonById(id) {
+    return this.persons.find(({ ma }) => {
+      return ma === id;
+    });
+  }
   getPersonsByType(type) {
     switch (type) {
       case 'Student':
-        return this.persons.filter((person) => {
-          return 'diemTrungBinh' in person;
-        });
       case 'Employee':
-        return this.persons.filter((person) => {
-          return 'workingDays' in person;
-        });
       case 'Customer':
         return this.persons.filter((person) => {
-          return 'companyName' in person;
+          return person.constructor.name === type;
         });
       default:
         return this.persons;
     }
+  }
+  updatePerson(person) {
+    const index = this.persons.findIndex(({ ma }) => ma === person.ma);
+    this.persons[index] = person;
   }
   deletePerson(id) {
     const index = this.persons.findIndex(({ ma }) => ma === id);

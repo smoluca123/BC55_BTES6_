@@ -41,7 +41,8 @@ export const handleRender = (arr) => {
             <td>${address}</td>
             <td>
                 
-                <button class="btn btn-primary">Edit</button>
+                <button class="btn btn-primary" data-toggle="modal"
+                data-target="#myModal" id="btnEditPerson" keyPerson="${ma}">Edit</button>
                 <button class="btn btn-danger" id="btnDeletePerson" keyPerson="${ma}">Delete</button>
             </td>
         </tr>
@@ -68,9 +69,9 @@ export const renderCustomTable = (persons, personType, fields) => {
                 return prev + `<td>${person[key]}</td>`;
               }, '')}
               <td>
-                  <button class="btn btn-success" data-toggle="modal"
-                  data-target="#myModal">Xem</button>
-                  <button class="btn btn-primary">Edit</button>
+                
+                  <button class="btn btn-primary" data-toggle="modal"
+									data-target="#myModal" id="btnEditPerson" keyPerson="${person.ma}">Edit</button>
                   <button class="btn btn-danger" id="btnDeletePerson" keyPerson="${
                     person.ma
                   }">Delete</button>

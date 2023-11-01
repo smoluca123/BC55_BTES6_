@@ -1,7 +1,7 @@
 const fieldStudent = [
-  { field: 'diemToan', label: 'Diem Toan', icon: 'fa fa-star' },
-  { field: 'diemLy', label: 'Diem Ly', icon: 'fa fa-star' },
-  { field: 'diemHoa', label: 'Diem Hoa', icon: 'fa fa-star' },
+  { field: 'diemToan', label: 'Diểm Toán', icon: 'fa fa-star' },
+  { field: 'diemLy', label: 'Điểm Lý', icon: 'fa fa-star' },
+  { field: 'diemHoa', label: 'Điểm Hóa', icon: 'fa fa-star' },
 ];
 const fieldEmployee = [
   {

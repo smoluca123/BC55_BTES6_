@@ -127,7 +127,7 @@
 									<!-- <input type="text" class="form-control" placeholder="Loại nhân viên"
 										id="searchName"> -->
 									<select name="typePersonSelect" id="typePersonSelect" class="form-control">
-										<option value="">Chọn loại đối tượng</option>
+										<option value="">Tất cả</option>
 										<option>Student</option>
 										<option>Employee</option>
 										<option>Customer</option>
@@ -192,7 +192,7 @@
 				<!-- Modal body -->
 				<div class="modal-body">
 
-					<form role="form">
+					<form role="form" id="formModalPerson">
 
 						<div class="form-group">
 							<div class="input-group">
@@ -266,7 +266,7 @@
 				<!-- Modal footer -->
 				<div class="modal-footer" id="modal-footer">
 					<button id="btnAddPerson" type="button" class="btn btn-success">Thêm người dùng</button>
-					<button id="btnCapNhat" type="button" class="btn btn-success">Cập nhật</button>
+					<button style="display:none" id="btnCapNhat" type="button" class="btn btn-success">Cập nhật</button>
 					<button id="btnDong" type="button" class="btn btn-danger" data-dismiss="modal">Đóng</button>
 				</div>
 
