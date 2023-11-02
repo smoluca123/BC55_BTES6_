@@ -29,6 +29,7 @@ const getColTable = (fields) => {
 };
 
 export const handleRender = (arr) => {
+  $a('#typePersonSelect').value = '';
   const content = arr.reduce((prev, { ma, name, email, address }, index) => {
     return (
       prev +

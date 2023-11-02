@@ -34,7 +34,9 @@ function customModal(field, label, icon) {
             </div>
             <input type="text" name="${field}" id="${field}" class="form-control input-sm" placeholder="${label}">
         </div>
-        <span class="sp-thongbao" id="tb${field}"></span>
+        <span class="sp-thongbao" id="tb${
+          field.charAt(0).toUpperCase() + field.slice(1)
+        }"></span>
     </div>
     `;
 }

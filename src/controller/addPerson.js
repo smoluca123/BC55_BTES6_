@@ -8,7 +8,10 @@ import { getPersonInfo } from './getPersonInfo.js';
 
 export function addPerson(listPerson) {
   const person = getPersonInfo();
-  listPerson.persons.push(person);
-  handleRender(listPerson.persons);
-  setLocalStorage('persons', listPerson.persons);
+  if (person) {
+    listPerson.persons.push(person);
+    handleRender(listPerson.persons);
+    setLocalStorage('persons', listPerson.persons);
+    return true;
+  }
 }

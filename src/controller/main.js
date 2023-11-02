@@ -19,13 +19,17 @@ handleRender(listPerson.persons);
 // handle modal action
 $a('#typePersonModal').addEventListener('change', handleModal);
 $a('#btnAddPerson').addEventListener('click', () => {
-  addPerson(listPerson);
+  const status = addPerson(listPerson);
+  if (status) {
+    $a('#btnDong').click();
+  }
 });
 $a('#btnCapNhat').addEventListener('click', () => {
   const person = getPersonInfo();
   listPerson.updatePerson(person);
   handleRender(listPerson.persons);
   setLocalStorage('persons', listPerson.persons);
+  $a('#btnDong').click();
 });
 
 //handle select type person table
