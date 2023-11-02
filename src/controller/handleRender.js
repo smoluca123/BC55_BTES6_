@@ -69,7 +69,18 @@ export const renderCustomTable = (persons, personType, fields) => {
                 return prev + `<td>${person[key]}</td>`;
               }, '')}
               <td>
-                
+                ${
+                  person.diemTrungBinh
+                    ? `<button id="tinhDTB" class="btn btn-success" keyPerson="${person.ma}">
+                  Tính DTB</button>`
+                    : ''
+                }
+                ${
+                  person.getSalary
+                    ? `<button id="tinhLuong" class="btn btn-success" keyPerson="${person.ma}">
+                  Tính Lương</button>`
+                    : ''
+                }
                   <button class="btn btn-primary" data-toggle="modal"
 									data-target="#myModal" id="btnEditPerson" keyPerson="${person.ma}">Edit</button>
                   <button class="btn btn-danger" id="btnDeletePerson" keyPerson="${

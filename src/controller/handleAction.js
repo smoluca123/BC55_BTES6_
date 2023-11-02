@@ -4,6 +4,8 @@ import { setLocalStorage } from './localStorage.js';
 import { checkPersonType } from './checkPersonType.js';
 import { handleModal } from './handleChangeModal.js';
 import { showDataPerson } from './showDataPerson.js';
+import { swAlert } from './sweetAlert.js';
+import { formatCurrency } from './formatCurrency.js';
 
 export default function handleActionTable(listPerson) {
   return (e) => {
@@ -16,7 +18,7 @@ export default function handleActionTable(listPerson) {
         handleRender(listPerson.persons);
         setLocalStorage('persons', listPerson.persons);
         break;
-      case 'btnEditPerson':
+      case 'btnEditPerson': {
         $a('#btnAddPerson').style.display = 'none';
         $a('#btnCapNhat').style.display = 'block';
         $a('#id').disabled = true;
@@ -28,6 +30,30 @@ export default function handleActionTable(listPerson) {
         selecteEle.value = personType;
         handleModal();
         showDataPerson(personType, person);
+        break;
+      }
+      case 'tinhDTB': {
+        idPerson = e.target.getAttribute('keyPerson');
+        const person = listPerson.getPersonById(idPerson);
+        swAlert(
+          'center',
+          'success',
+          `Điểm trung bình : ${person.diemTrungBinh()}`,
+          false
+        );
+        break;
+      }
+      case 'tinhLuong': {
+        idPerson = e.target.getAttribute('keyPerson');
+        const person = listPerson.getPersonById(idPerson);
+        swAlert(
+          'center',
+          'success',
+          `Lương : ${formatCurrency(person.getSalary(), 'vi-VN')}`,
+          false
+        );
+        break;
+      }
     }
   };
 }

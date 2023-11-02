@@ -3,23 +3,18 @@ import { fieldStudent, fieldEmployee, fieldCustomer } from './customField.js';
 
 export function handleModal() {
   const selectValue = $a('#typePersonModal');
-
+  const fieldPerson =
+    selectValue.value === 'Student'
+      ? fieldStudent
+      : selectValue.value === 'Employee'
+      ? fieldEmployee
+      : fieldCustomer;
   let content = '';
   switch (selectValue.value) {
     case 'Student':
-      content = fieldStudent.reduce((prev, { field, label, icon }) => {
-        return prev + customModal(field, label, icon);
-      }, '');
-      $a('#modalPerson').innerHTML = content;
-      break;
     case 'Employee':
-      content = fieldEmployee.reduce((prev, { field, label, icon }) => {
-        return prev + customModal(field, label, icon);
-      }, '');
-      $a('#modalPerson').innerHTML = content;
-      break;
     case 'Customer':
-      content = fieldCustomer.reduce((prev, { field, label, icon }) => {
+      content = fieldPerson.reduce((prev, { field, label, icon }) => {
         return prev + customModal(field, label, icon);
       }, '');
       $a('#modalPerson').innerHTML = content;
