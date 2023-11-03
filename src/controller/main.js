@@ -26,10 +26,13 @@ $a('#btnAddPerson').addEventListener('click', () => {
 });
 $a('#btnCapNhat').addEventListener('click', () => {
   const person = getPersonInfo();
-  listPerson.updatePerson(person);
-  handleRender(listPerson.persons);
-  setLocalStorage('persons', listPerson.persons);
-  $a('#btnDong').click();
+
+  if (person) {
+    listPerson.updatePerson(person);
+    handleRender(listPerson.persons);
+    setLocalStorage('persons', listPerson.persons);
+    $a('#btnDong').click();
+  }
 });
 
 //handle select type person table
