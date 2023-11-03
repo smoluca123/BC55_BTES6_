@@ -15,7 +15,7 @@ const getColTable = (fields) => {
         <i class="fa fa-arrow-down" id="SapXepGiam"></i>
       </th>
       <th>ID</th>
-      <th>Họ và tên</th>
+      <th style="cursor:pointer" id="sortName">Họ và tên <span class="fa fa-arrow-up"></span></th>
       <th>Email</th>
       <th>Địa chỉ</th>
       ${fields.reduce((prev, { name, label, icon }) => {

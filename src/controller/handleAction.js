@@ -7,6 +7,7 @@ import { showDataPerson } from './showDataPerson.js';
 import { swAlert } from './sweetAlert.js';
 import { formatCurrency } from './formatCurrency.js';
 
+let isSort = false;
 export default function handleActionTable(listPerson) {
   return (e) => {
     const idEle = e.target.id;
@@ -54,6 +55,20 @@ export default function handleActionTable(listPerson) {
         );
         break;
       }
+      // short
+      case 'sortName':
+        if (!isSort) {
+          isSort = true;
+          setTimeout(() => {
+            $a('#sortName span').classList.toggle('fa-arrow-down');
+          }, 0);
+          const newArr = [...listPerson.persons];
+          const arrSort = newArr.sort((a, b) => a.name.localeCompare(b.name));
+          handleRender(arrSort);
+          return;
+        }
+        isSort = false;
+        handleRender(listPerson.persons);
     }
   };
 }
